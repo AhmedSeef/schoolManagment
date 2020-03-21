@@ -4,7 +4,7 @@
 
 - Run the project server using the following commands: 
 
-``` cd SmartSchollProject ``` 
+``` cd SmartSchoolProject ``` 
 
 ``` python manage.py runserver ```
 
