@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import { AuthService } from 'src/app/Service/auth.service';
 
 declare var $;
 
@@ -8,8 +9,9 @@ declare var $;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  user:any = {};
 
-  constructor() {
+  constructor(private auth:AuthService) {
   }
 
   ngOnInit() {
@@ -25,6 +27,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     $('body').removeClass('hold-transition login-page');
+  }
+
+  login(){
+    this.auth.login(this.user)
   }
 
 }
