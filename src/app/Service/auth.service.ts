@@ -5,14 +5,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-baseUrl = "http://127.0.0.1:8000/";
-taken:any = "";
+baseUrl = "http://127.0.0.1:8000/api/";
+token:any = "";
 user:any = {};
   constructor(private http:HttpClient) { }
 
   login(user:any){
-    this.http.get(this.baseUrl + "login/",user).subscribe(
-      (data:any)=>{console.log(data)}
+    console.log(user)
+    this.http.post(this.baseUrl + "login/",user).subscribe(
+      (data:any)=>{
+        this.user = JSON.parse(data)
+        console.log(this.user)
+      }
     )
+  }
+
+  gettoken(){
+    return this.token
+  }
+
+  getusertype(){
+
   }
 }

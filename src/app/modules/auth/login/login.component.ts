@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(){
+    console.log(this.user)
     this.auth.login(this.user)
   }
 
