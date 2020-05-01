@@ -1,0 +1,62 @@
+<br>
+<br>
+<br>
+<button type="submit" class="btn btn-primary" (click)="get('/home/AddUser')">create user</button>
+<br> <br> <br>
+<div class="box">
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="user name: activate to sort column descending"
+                                    style="width: 182px;">user name</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="email: activate to sort column ascending" style="width: 225px;">
+                                    email</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="user type: activate to sort column ascending" style="width: 199px;">
+                                    user type</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="is superuser: activate to sort column ascending"
+                                    style="width: 156px;">is superuser</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="CSS grade: activate to sort column ascending" style="width: 113px;">Actions
+                                    </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row" class="even" *ngFor="let user of users">
+                                <td class="sorting_1">{{user.username}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.user_type}}</td>
+                                <td>{{user.is_superuser}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" (click)="remove(user.id)">Delete</button>
+                                    <button type="button" class="btn btn-success" (click)="update(user)">Update</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th rowspan="1" colspan="1">user name</th>
+                                <th rowspan="1" colspan="1">email</th>
+                                <th rowspan="1" colspan="1">user type</th>
+                                <th rowspan="1" colspan="1">is superuser</th>
+                                <th rowspan="1" colspan="1">CSS grade</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-body -->
+</div>

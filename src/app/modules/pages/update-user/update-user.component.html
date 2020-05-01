@@ -1,0 +1,76 @@
+<br><br>
+<br><br>
+
+
+<div class="register-box">    
+    <div class="register-box-body">
+      <p class="login-box-msg">update user</p>
+  
+      <form #registerForm="ngForm" (ngSubmit)="update()">
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="user name" type="text" name="username"
+          [(ngModel)]="user.username">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="user_type" (change)="selected($event.target.value)"
+          [(ngModel)]="user.user_type">
+            <option [value]="0" selected>select user type</option>
+            <option [value]='1'>ADMIN</option>
+            <option [value]="2"> STUDENT</option>
+            <option [value]="3">PARENT</option>
+            <option [value]="4">TEACHER</option>
+          </select>
+          
+        </div>
+
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="First name" type="text" name="first_name"
+          [(ngModel)]="user.first_name"> 
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="Last name" type="text" name="last_name"
+          [(ngModel)]="user.last_name">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+
+        
+        <!--<div class="form-group has-feedback">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+          </div>
+        </div> !-->
+
+        
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="Email" type="email" name="email"
+          [(ngModel)]="user.email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="Password" type="password" name="password"
+          [(ngModel)]="user.password">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        
+        <div class="row">         
+          <!-- /.col -->
+          <div class="col-xs-4 col-md-6">
+            <button class="btn btn-primary btn-block btn-flat" type="submit">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>    
+    </div>
+    <!-- /.form-box -->
+  </div>
+  <!-- /.register-box -->
+  
