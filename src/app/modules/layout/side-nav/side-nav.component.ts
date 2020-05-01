@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 declare var $;
 
@@ -10,8 +11,9 @@ declare var $;
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-
-  constructor(private router: Router,private sharedservice:SharedMethodService) {
+  user:any;
+  constructor(private router: Router,private sharedservice:SharedMethodService,private auth:AuthService) {
+    this.user =  this.auth.getuser(); 
   }
 
   ngOnInit() {

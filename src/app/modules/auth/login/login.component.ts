@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from 'src/app/Service/auth.service';
+import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
 
 declare var $;
 
@@ -11,7 +12,7 @@ declare var $;
 export class LoginComponent implements OnInit, OnDestroy {
   user:any = {};
 
-  constructor(private auth:AuthService) {
+  constructor(private auth:AuthService,private share:SharedMethodService) {
   }
 
   ngOnInit() {
@@ -29,9 +30,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     $('body').removeClass('hold-transition login-page');
   }
 
-  login(){
-    console.log(this.user)
-    this.auth.login(this.user)
+  login(){    
+    var result =this.auth.login(this.user);
+    if(result===true){
+      this.share.navigate("home")
+    }
   }
 
 }

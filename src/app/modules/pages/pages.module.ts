@@ -12,14 +12,18 @@ import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { FormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent],
+  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    LayoutModule
+    LayoutModule,
+    FormsModule
   ]
 })
 export class PagesModule {
