@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserListService } from 'src/app/Service/user-list.service';
+import { UserAdd } from 'src/app/models/user-add';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -8,19 +10,35 @@ import { UserListService } from 'src/app/Service/user-list.service';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
-  user:any= {};
+  user:UserAdd= {
+    username:"",
+    first_name:"",
+    last_name:"",
+    user_type:"",
+    email:"",
+    password:"",
+    phone:"",
+    birth_date: null,
+    picture:"",
+    job:"",
+    stage:null,
+    category:null,
+    hire_date:null,
+    adress:""
+  };
   type:any;
   studentHidden:boolean = true;
   teacherHidden:boolean = true;
   parentHidden:boolean=true;
 
-  constructor(private userl:UserListService) { 
-    this.user.user_type = 0;
+  constructor(private userl:UserListService, private datePipe: DatePipe) { 
+   
   }
 
   ngOnInit() {
   }
 
+  //slect user type and maping values
   selected(value:any){
       if(value == 1)
       {
@@ -51,11 +69,18 @@ export class AddUserComponent implements OnInit {
       
   }
 
+  slectSatge(stage:Number){
+   
+  }
+
   register(){
-    /*this.user.user_type = this.type;
+    this.user.user_type = this.type;
+    
+    var date = this.user.birth_date;
+   console.log(this.datePipe.transform(date,"yyyy-MM-dd")); 
     this.userl.registerUser(this.user).subscribe(
-      (resposnse:any)=>{this.user = {};this.user.user_type = 0;}
-    )*/
+        (resposnse:any)=>{console.log(resposnse);this.user.user_type = "0";}
+      )
     console.log(this.user)
   }
 

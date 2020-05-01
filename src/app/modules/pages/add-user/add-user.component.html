@@ -1,103 +1,146 @@
+<div class="register-box">
+  <div class="register-box-body">
+    <p class="login-box-msg">Register a new membership Admin</p>
 
-<div class="register-box">    
-    <div class="register-box-body">
-      <p class="login-box-msg">Register a new membership Admin</p>
-  
-      <form #registerForm="ngForm" (ngSubmit)="register()">
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="user name" type="text" name="username"
-          [(ngModel)]="user.username">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="user name" type="text" name="username" [(ngModel)]="user.username"
+          required #username="ngModel">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+
+        <div *ngIf="username.errors.required">
+          User Name is required.
         </div>
 
-        <div class="form-group">
-          <select class="form-control" name="user_type" (change)="selected($event.target.value)"
-          [(ngModel)]="user.user_type">
-            <option [value]="0" selected>select user type</option>
-            <option [value]='1'>ADMIN</option>
-            <option [value]="2"> STUDENT</option>
-            <option [value]="3">PARENT</option>
-            <option [value]="4">TEACHER</option>
-          </select>          
+      </div>
+
+
+      <div class="form-group">
+        <select class="form-control" name="user_type" (change)="selected($event.target.value)"
+          [(ngModel)]="user.user_type" required  #user_type="ngModel" >
+          <option disabled selected>select user type</option>
+          <option [value]='1'>ADMIN</option>
+          <option [value]="2"> STUDENT</option>
+          <option [value]="3">PARENT</option>
+          <option [value]="4">TEACHER</option>
+        </select>
+      </div>
+      <div *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)" class="alert alert-danger">
+
+        <div *ngIf="user_type.errors.required">
+          User Type is required.
         </div>
 
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="First name" type="text" name="first_name"
-          [(ngModel)]="user.first_name"> 
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
+      </div>
 
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="Last name" type="text" name="last_name"
-          [(ngModel)]="user.last_name">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="First name" type="text" name="first_name"
+          [(ngModel)]="user.first_name">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
 
-        
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="Email" type="email" name="email"
-          [(ngModel)]="user.email">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="Last name" type="text" name="last_name" [(ngModel)]="user.last_name">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
 
 
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="Password" type="password" name="password"
-          [(ngModel)]="user.password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="Email" type="email" name="email" [(ngModel)]="user.email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
 
-        <div class="form-group" [hidden]="studentHidden">
-          <select class="form-control" name="stage_id" (change)="selected($event.target.value)"
-          [(ngModel)]="user.stage_id">
-            <option [value]="0" selected>select user type</option>
-            <option [value]='1'>1</option>
-            <option [value]="2">2</option>
-            <option [value]="3">3</option>
-            <option [value]="4">3</option>
-          </select>          
-        </div>
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="telephone" type="tel" name="phone" [(ngModel)]="user.phone">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
 
-        <div class="form-group" [hidden]="teacherHidden">          
-            <select class="form-control" name="category_id" (change)="selected($event.target.value)"
-          [(ngModel)]="user.category_id">
-            <option [value]="0" selected>select user type</option>
-            <option [value]='1'>1</option>
-            <option [value]="2">2</option>
-            <option [value]="3">3</option>
-            <option [value]="4">3</option>
-          </select>  
-          </div>        
-        
-        <div class="form-group has-feedback" [hidden]="teacherHidden">
-          <div class="input-group">
-            <div class="input-group-addon">
-              <i class="fa fa-calendar"></i>
-            </div>
-            <input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask=""
-            name="hire_date" [(ngModel)]="user.hire_date">
+      <div class="form-group has-feedback">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
           </div>
+          <input type="date" class="form-control" data-inputmask="'alias': 'yyyy/dd/mm/'" data-mask="" name="birth_date"
+            [(ngModel)]="user.birth_date" required #birth_date="ngModel"> 
         </div>
+      </div>
 
-        <div class="form-group has-feedback" [hidden]="parentHidden">
-          <input class="form-control" placeholder="job" type="text" name="job"
-          [(ngModel)]="user.job"> 
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      <div *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)" class="alert alert-danger">
+        <div *ngIf="birth_date.errors.required">
+          User Name is required.
         </div>
+      </div>
 
-        
-        <div class="row">         
-          <!-- /.col -->
-          <div class="col-xs-4 col-md-6">
-            <button class="btn btn-primary btn-block btn-flat" type="submit">Register</button>
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="Adress" type="text" name="adress" [(ngModel)]="user.adress">
+        <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+      </div>
+
+
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="Password" type="password" name="password" 
+        [(ngModel)]="user.password"  required #password="ngModel">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+        <div *ngIf="password.errors.required">
+          User Name is required.
+        </div>
+      </div>
+
+      <div class="form-group" [hidden]="studentHidden">
+        <select class="form-control" name="stage_id" (change)="slectSatge($event.target.value)"
+          [(ngModel)]="user.stage">
+          <option [value]="0" selected>select student stage</option>
+          <option [value]='1'>1</option>
+          <option [value]="2">2</option>
+          <option [value]="3">3</option>
+          <option [value]="4">3</option>
+        </select>
+      </div>
+
+      <div class="form-group" [hidden]="teacherHidden">
+        <select class="form-control" name="category" (change)="selected($event.target.value)"
+          [(ngModel)]="user.category">
+          <option [value]="0" selected>select category</option>
+          <option [value]='1'>1</option>
+          <option [value]="2">2</option>
+          <option [value]="3">3</option>
+          <option [value]="4">3</option>
+        </select>
+      </div>
+
+      <div class="form-group has-feedback" [hidden]="teacherHidden">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
           </div>
-          <!-- /.col -->
+          <input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hire_date"
+            [(ngModel)]="user.hire_date">
         </div>
+      </div>
 
-        
-      </form>    
-    </div>
-    <!-- /.form-box -->
+      <div class="form-group has-feedback" [hidden]="parentHidden">
+        <input class="form-control" placeholder="job" type="text" name="job" [(ngModel)]="user.job">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
+
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-4 col-md-6">
+          <button class="btn btn-primary btn-block btn-flat" type="submit" 
+         [disabled]="!registerForm.valid">Register</button>
+        </div>
+        <!-- /.col -->
+      </div>
+
+
+    </form>
   </div>
-  <!-- /.register-box -->
-  
+  <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
