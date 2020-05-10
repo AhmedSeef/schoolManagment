@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { AuthService } from 'src/app/Service/auth.service';
 
 declare var $;
 
@@ -9,7 +10,8 @@ declare var $;
 })
 export class PagesComponent implements OnInit {
 
-  constructor() {
+  constructor(private auth:AuthService) {
+    auth.logOut();
   }
 
   ngOnInit() {

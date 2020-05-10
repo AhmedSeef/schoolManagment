@@ -33,10 +33,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-        <li><a (click)="get('/home/users')"><i class="fa fa-book"></i> <span>Users</span></a></li>
-        <li><a (click)="get('/home/AddParent')"><i class="fa fa-book"></i> <span>Add Parent</span></a></li> 
-        <li><a (click)="get('/home/AddTeacher')"><i class="fa fa-book"></i> <span>Add Teacher</span></a></li>     
-        <li><a (click)="get('/home/AddStudent')"><i class="fa fa-book"></i> <span>Add Student</span></a></li>
+        <li><a (click)="get('/home/users')"><i class="fa fa-book"></i> <span>Users</span></a></li>        
         </ul>
       </li>
       
@@ -48,10 +45,22 @@
           </span>
         </a>
         <ul class="treeview-menu">
-        <li><a (click)="get('/home/AddCategory')"><i class="fa fa-book"></i> <span>Add Category</span></a></li>
-        <li><a (click)="get('/home/AddSubject')"><i class="fa fa-book"></i> <span>Add Subject</span></a></li>        
+        <li><a (click)="get('/home/categories')"><i class="fa fa-book"></i> <span>Categories</span></a></li>
+        <li><a (click)="get('/home/subjects')"><i class="fa fa-book"></i> <span>Subjects</span></a></li>        
         </ul>
       </li>   
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder"></i> <span>Stages</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a (click)="get('/home/stages')"><i class="fa fa-book"></i> <span>Stages</span></a></li>     
+        </ul>
+      </li>  
     </ul>
   </section>
   <!-- /.sidebar -->

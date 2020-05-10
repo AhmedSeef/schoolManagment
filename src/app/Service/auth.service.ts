@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ baseUrl = "http://127.0.0.1:8000/api/";
 token:any = "";
 user_type:any = "";
 user:any = {};
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router: Router) { }
 
   login(user:any){    
     this.http.post(this.baseUrl + "login/",user).subscribe(
@@ -44,5 +45,13 @@ user:any = {};
     var data = localStorage.getItem('user');
     this.user = JSON.parse(data)
     return this.user;
+  }
+
+  logOut(){
+    var data  = localStorage.getItem("token");
+    this.token = JSON.parse(data)
+    if(this.token == null || this.token == ""){
+      this.router.navigateByUrl("http://localhost:4200/login")
+    }
   }
 }

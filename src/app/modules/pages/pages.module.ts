@@ -16,10 +16,14 @@ import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { StageListComponent } from './stage-List/stage-List.component';
+import { AddStageComponent } from './add-stage/add-stage.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent],
+  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent,CategoryListComponent,StageListComponent,AddStageComponent,SubjectListComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
