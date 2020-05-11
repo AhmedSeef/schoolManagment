@@ -26,7 +26,7 @@ export class SbjectService {
     return this.http.get(this.baseUrl,this.httpOptions)
    }
 
-   addStage(subject:any){
+   addSsubject(subject:any){
     return this.http.post(this.baseUrl,subject,this.httpOptions)
   }
 

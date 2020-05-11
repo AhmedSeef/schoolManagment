@@ -30,10 +30,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     $('body').removeClass('hold-transition login-page');
   }
 
-  login(){    
-    var result =this.auth.login(this.user);
-    if(result===true){
-      this.share.navigate("home")
+  login(){  
+    console.log(this.user)  
+     var result =this.auth.login(this.user);
+     if(result===true){
+       this.share.navigate("home")
     }
   }
 

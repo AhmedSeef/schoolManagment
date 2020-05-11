@@ -21,7 +21,7 @@
       <div class="form-group">
         <select class="form-control" name="user_type" (change)="selected($event.target.value)"
           [(ngModel)]="user.user_type" required  #user_type="ngModel" >
-          <option disabled selected>select user type</option>
+          <option disabled [value]="0">select user type</option>
           <option [value]='1'>ADMIN</option>
           <option [value]="2"> STUDENT</option>
           <option [value]="3">PARENT</option>
@@ -75,7 +75,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Adress" type="text" name="adress" [(ngModel)]="user.adress">
+        <input class="form-control" placeholder="Address" type="text" name="address" [(ngModel)]="user.address">
         <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
       </div>
 
@@ -95,21 +95,19 @@
         <select class="form-control" name="stage_id" (change)="slectSatge($event.target.value)"
           [(ngModel)]="user.stage">
           <option [value]="0" selected>select student stage</option>
-          <option [value]='1'>1</option>
-          <option [value]="2">2</option>
-          <option [value]="3">3</option>
-          <option [value]="4">3</option>
+          <option *ngFor="let stage of stages" [value]="stage.id">
+            {{stage.name}}
+          </option>
         </select>
       </div>
 
       <div class="form-group" [hidden]="teacherHidden">
-        <select class="form-control" name="category" (change)="selected($event.target.value)"
+        <select class="form-control" name="category" (change)="setcategory($event.target.value)"
           [(ngModel)]="user.category">
           <option [value]="0" selected>select category</option>
-          <option [value]='1'>1</option>
-          <option [value]="2">2</option>
-          <option [value]="3">3</option>
-          <option [value]="4">3</option>
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{category.name}}
+          </option>
         </select>
       </div>
 

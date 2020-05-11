@@ -36,8 +36,8 @@
                             <tr role="row" class="even" *ngFor="let subject of subjects">
                                 <td class="sorting_1">{{subject.id}}</td>
                                 <td>{{subject.name}}</td>
-                                <td>{{subject.category}}</td>
-                                <td>{{subject.stage}}</td>
+                                <td>{{subject.category.name}}</td>
+                                <td>{{subject.stage.name}}</td>
                                 <td>{{subject.credit_hours}}</td>
 
                                 <!-- <td>

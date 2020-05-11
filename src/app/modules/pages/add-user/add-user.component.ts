@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserListService } from 'src/app/Service/user-list.service';
 import { UserAdd } from 'src/app/models/user-add';
 import { DatePipe } from '@angular/common';
+import { CategoryService } from 'src/app/Service/category.service';
+import { SatgesService } from 'src/app/Service/satges.service';
+import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
 
 
 @Component({
@@ -14,12 +17,11 @@ export class AddUserComponent implements OnInit {
     username:"",
     first_name:"",
     last_name:"",
-    user_type:"",
+    user_type:"0",
     email:"",
     password:"",
     phone:"",
-    birth_date: null,
-    picture:"",
+    birth_date: null,    
     job:"",
     stage:null,
     category:null,
@@ -27,17 +29,31 @@ export class AddUserComponent implements OnInit {
     adress:""
   };
   type:any;
+  categories:any;
+  stages:any;
   studentHidden:boolean = true;
   teacherHidden:boolean = true;
   parentHidden:boolean=true;
 
-  constructor(private userl:UserListService, private datePipe: DatePipe) { 
+  constructor(private userl:UserListService, private datePipe: DatePipe,private ctegorService:CategoryService,private stageService:SatgesService,private shareS:SharedMethodService) { 
    
   }
 
   ngOnInit() {
+    
   }
 
+  getcategories(){
+    this.ctegorService.getListCategories().subscribe(
+      (data:any)=>{this.categories = data}
+    )
+  }
+
+  getStages(){
+    this.stageService.getListStages().subscribe(
+      (data:any)=>{this.stages = data}
+    )
+  }
   //slect user type and maping values
   selected(value:any){
       if(value == 1)
@@ -51,6 +67,8 @@ export class AddUserComponent implements OnInit {
         this.type = "STD";
         this.studentHidden = false;
         this.parentHidden  = this.teacherHidden= true;
+        this.user.stage = 0;
+        this.getStages();
       }
      
       if(value == 3)
@@ -65,23 +83,26 @@ export class AddUserComponent implements OnInit {
         this.type = "TECH";
         this.teacherHidden = false;
         this.studentHidden = this.parentHidden  = true;
+        this.user.category = 0;
+        this.getcategories();
       }
       
+      console.log(this.type)
   }
 
-  slectSatge(stage:Number){
-   
+  setcategory(cat:Number){
+   this.user.category = Number(cat)
   }
 
   register(){
-    this.user.user_type = this.type;
-    
-    var date = this.user.birth_date;
-   console.log(this.datePipe.transform(date,"yyyy-MM-dd")); 
-    this.userl.registerUser(this.user).subscribe(
-        (resposnse:any)=>{console.log(resposnse);this.user.user_type = "0";}
-      )
     console.log(this.user)
+    this.user.user_type = this.type;    
+    var date = this.user.birth_date;
+   var date1 = this.datePipe.transform(date,"yyyy-MM-dd"); 
+    this.userl.registerUser(this.user).subscribe(
+        (resposnse:any)=>{console.log(resposnse);this.user.user_type = "0";this.shareS.navigate("/home/users")}
+      )
+    
   }
 
   
