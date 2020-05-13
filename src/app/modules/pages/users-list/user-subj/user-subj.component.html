@@ -1,13 +1,20 @@
 <br>
 <br>
 <br>
-<button type="submit" class="btn btn-primary" (click)="get('/home/addcategory')">create category</button>
-<br> <br> <br>
+<div class="form-group" >
+    <select class="form-control">
+      <option [value]="0" selected>add subject</option>
+      <option *ngFor="let subject of subjects" [value]="subject.id" (click) = "add(subject)"> 
+        {{subject.name}}
+      </option>
+    </select>
+  </div>
+
 <div class="box">
     <!-- /.box-header -->
     <div class="box-body">
         <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-            
+
             <div class="row">
                 <div class="col-sm-12">
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
@@ -15,29 +22,29 @@
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-sort="ascending"
-                                    aria-label="user name: activate to sort column descending"
+                                    aria-sort="ascending" aria-label="user name: activate to sort column descending"
                                     style="width: 182px;">id</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="name: activate to sort column ascending" style="width: 225px;">
                                     name</th>
-                                
+                                <th>
+
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr role="row" class="even" *ngFor="let cat of categories">
-                                <td class="sorting_1">{{cat.id}}</td>
-                                <td>{{cat.name}}</td>                                
-                                <!-- <td>
-                                    <button type="button" class="btn btn-danger" (click)="remove(user.id)">Delete</button>
-                                    <button type="button" class="btn btn-success" (click)="update(user)">Update</button>
-                                </td> -->
+                            <tr role="row" class="even" *ngFor="let subject of userSubjects">
+                                <td class="sorting_1">{{subject.id}}</td>
+                                <td>{{subject.name}}</td>
+                                
+                                <td>
+                                    <button class="danger" (click)="remove(subject.name)">Delete</button>
+                                </td>
+                                
                             </tr>
                         </tbody>
                         <tfoot>
-                            <tr>
-                                
-                            </tr>
+                           
                         </tfoot>
                     </table>
                 </div>

@@ -41,17 +41,12 @@
                                 <td>
                                     <button type="button" class="btn btn-danger" (click)="remove(user.id)">Delete</button>
                                     <button type="button" class="btn btn-success" (click)="update(user)">Update</button>
+                                    <a type="button" class="btn btn-success" [routerLink]="['/home/user-subj', user.id]">subjects</a>
                                 </td>
                             </tr>
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th rowspan="1" colspan="1">user name</th>
-                                <th rowspan="1" colspan="1">email</th>
-                                <th rowspan="1" colspan="1">user type</th>
-                                <th rowspan="1" colspan="1">is superuser</th>
-                                <th rowspan="1" colspan="1">CSS grade</th>
-                            </tr>
+                            
                         </tfoot>
                     </table>
                 </div>

@@ -21,9 +21,11 @@ import { StageListComponent } from './stage-List/stage-List.component';
 import { AddStageComponent } from './add-stage/add-stage.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 
+import { UserSubjComponent } from './users-list/user-subj/user-subj.component';
+
 
 @NgModule({
-  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent,CategoryListComponent,StageListComponent,AddStageComponent,SubjectListComponent],
+  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent,CategoryListComponent,StageListComponent,AddStageComponent,SubjectListComponent, UserSubjComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

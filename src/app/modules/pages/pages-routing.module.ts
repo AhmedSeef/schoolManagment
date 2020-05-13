@@ -15,6 +15,8 @@ import { StageListComponent } from './stage-List/stage-List.component';
 import { AddStageComponent } from './add-stage/add-stage.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 
+import { UserSubjComponent } from './users-list/user-subj/user-subj.component';
+
 
 const routes: Routes = [
   {
@@ -31,7 +33,9 @@ const routes: Routes = [
       {path:"stages",component:StageListComponent},
       {path:"addstage",component:AddStageComponent},
       {path:'categories',component:CategoryListComponent},
-      {path:'subjects',component:SubjectListComponent},
+      {path:'subjects',component:SubjectListComponent},     
+      {path:'user-subj/:id',component:UserSubjComponent},
+
       { path: "**", component: DashBoardComponent }
 
     ]
