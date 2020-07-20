@@ -14,7 +14,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { UsersListComponent } from './users-list/users-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { StageListComponent } from './stage-List/stage-List.component';
@@ -22,14 +22,34 @@ import { AddStageComponent } from './add-stage/add-stage.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 
 import { UserSubjComponent } from './users-list/user-subj/user-subj.component';
+import { AddMaterialComponent } from './add-material/add-material.component';
+import { MaterialListComponent } from './material-list/material-list.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashBoardComponent, AddUserComponent, AddParentComponent, AddTeacherComponent, AddStudentComponent, AddCategoryComponent, AddSubjectComponent, UsersListComponent,UpdateUserComponent,CategoryListComponent,StageListComponent,AddStageComponent,SubjectListComponent, UserSubjComponent],
+  declarations: [
+    PagesComponent,
+     DashBoardComponent,
+      AddUserComponent,
+       AddParentComponent,
+        AddTeacherComponent,
+         AddStudentComponent,
+          AddCategoryComponent,
+           AddSubjectComponent,
+            UsersListComponent,
+            UpdateUserComponent,
+            CategoryListComponent,
+            StageListComponent,
+            AddStageComponent,
+            SubjectListComponent,
+            UserSubjComponent
+    ,AddMaterialComponent,
+  MaterialListComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
     LayoutModule,
+    ReactiveFormsModule,
     FormsModule
   ]
 })

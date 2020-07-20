@@ -1,0 +1,48 @@
+<div class="register-box">
+  <div class="register-box-body">
+    <p class="login-box-msg">Add Subject</p>
+
+    <form #registerForm="ngForm" (ngSubmit)="addMaterial()" enctype="multipart/form-data">
+
+      <div class="form-group has-feedback">
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1"
+          tabindex="-1" aria-hidden="true" name="subject" [(ngModel)]="model.subject" required #subject="ngModel"
+          (change)="setSubject($event.target.value)">
+          <option [value]="0" disabled>Select subject</option>
+          <option *ngFor="let subject of subjects" [value]="subject.id">
+            {{subject.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="title" type="text" name="title" [(ngModel)]="model.title"
+        required #title="ngModel">         
+      </div>
+
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="path" type="file" name="path" [(ngModel)]="model.path"
+        required #path="ngModel" (change)="changeFile($event)">         
+      </div>
+
+      <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx">
+
+      <div class="form-group has-feedback">
+        <input class="form-control" placeholder="notes" type="text" name="notes" [(ngModel)]="model.notes"
+        required #notes="ngModel">         
+      </div>
+
+
+
+
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-4 col-md-6">
+          <button class="btn btn-primary btn-block btn-flat" type="submit">Add</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+  </div>
+  <!-- /.form-box -->
+</div>
