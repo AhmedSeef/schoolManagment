@@ -1,0 +1,87 @@
+<div class="box">
+  <div class="col-sm-12">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">title</th>
+            <th scope="col">duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{exam.id}}</th>
+            <td>{{exam.title}}</td>
+            <td>{{exam.duration}} hours</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+
+    </div>
+    <div class="row">
+      <br> <br>
+      <h2>exam questions</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">code</th>
+            <th scope="col">title</th>
+            <th scope="col">mark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let que of questions">
+            <th scope="row">{{que.id}}</th>
+            <td>{{que.content}}</td>
+            <td>{{que.mark}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="register-box">
+        <div class="register-box-body">
+          <p class="login-box-msg">Add Question</p>
+
+          <form #question="ngForm" (ngSubmit)="addQuestion()">
+            <div class="form-group has-feedback">
+              <input class="form-control" placeholder="question content" type="text" name="content"
+                [(ngModel)]="model.content" minlength="5" required #content="ngModel">
+              <div *ngIf="!content.valid && (content.touched ||content.dirty )" class="alert-danger">
+                <div *ngIf="content?.errors.minlength">
+                  Name must be at least 5 characters long.
+                </div>
+                <div *ngIf="content?.errors.required">
+                  content must entered.
+                </div>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <input class="form-control" placeholder="question mark" type="number" name="mark" [(ngModel)]="model.mark"
+                required #mark="ngModel">
+            </div>
+            <div *ngIf="!mark.valid && (mark.touched ||mark.dirty )" class="alert-danger">
+              
+              <div *ngIf="mark?.errors.required">
+                mark must entered.
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4 col-md-6">
+              <button class="btn btn-primary btn-block btn-flat" type="submit"
+              [disabled]="!question.valid">Add</button>
+            </div>
+            <!-- /.col -->
+
+          </form>
+        </div>
+        <!-- /.form-box -->
+      </div>
+      <!-- /.register-box -->
+    </div>
+  </div>
+</div>

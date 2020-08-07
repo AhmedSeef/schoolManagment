@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
 import { CategoryService } from 'src/app/Service/category.service';
 import { SatgesService } from 'src/app/Service/satges.service';
 import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 
 @Component({
@@ -35,8 +36,11 @@ export class AddUserComponent implements OnInit {
   teacherHidden:boolean = true;
   parentHidden:boolean=true;
 
-  constructor(private userl:UserListService, private datePipe: DatePipe,private ctegorService:CategoryService,private stageService:SatgesService,private shareS:SharedMethodService) { 
-   
+  constructor(private userl:UserListService, private datePipe: DatePipe,private ctegorService:CategoryService,private stageService:SatgesService,private shareS:SharedMethodService,private auth:AuthService) { 
+    var result =this.auth.getusertype();
+    if(result!='ADM'){
+      this.shareS.navigate("home")           
+   }
   }
 
   ngOnInit() {

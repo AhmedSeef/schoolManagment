@@ -3,6 +3,8 @@ import { Subject } from 'src/app/models/subject';
 import { SbjectService } from 'src/app/Service/sbject.service';
 import { SatgesService } from 'src/app/Service/satges.service';
 import { CategoryService } from 'src/app/Service/category.service';
+import { AuthService } from 'src/app/Service/auth.service';
+import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
 
 @Component({
   selector: 'app-add-subject',
@@ -31,7 +33,12 @@ export class AddSubjectComponent implements OnInit {
     complete: () => { },
   };
 
-  constructor(private subjectService:SbjectService,private stageService:SatgesService,private categoryService:CategoryService) { }
+  constructor(private subjectService:SbjectService,private auth:AuthService,private sharedservice:SharedMethodService,private stageService:SatgesService,private categoryService:CategoryService) { 
+    var result =this.auth.getusertype();
+     if(result!='ADM'){
+       this.sharedservice.navigate("home")           
+    }
+  }
 
   ngOnInit() {
     this.stageService.getListStages().subscribe(this.satgesObserver)

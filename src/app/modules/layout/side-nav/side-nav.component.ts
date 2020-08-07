@@ -25,4 +25,10 @@ export class SideNavComponent implements OnInit {
   get(url:string){
     this.sharedservice.navigate(url);
   }
+
+  checkRule(rule:any){
+    if(this.auth.getusertype()==rule){
+      return true;
+    }
+  }
 }

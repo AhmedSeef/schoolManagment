@@ -24,6 +24,9 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import { UserSubjComponent } from './users-list/user-subj/user-subj.component';
 import { AddMaterialComponent } from './add-material/add-material.component';
 import { MaterialListComponent } from './material-list/material-list.component';
+import { ExamListComponent } from './exam-list/exam-list.component';
+import { AddExamComponent } from './add-exam/add-exam.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { MaterialListComponent } from './material-list/material-list.component';
             SubjectListComponent,
             UserSubjComponent
     ,AddMaterialComponent,
-  MaterialListComponent],
+  MaterialListComponent,
+ExamListComponent,
+AddExamComponent,
+AddQuestionComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

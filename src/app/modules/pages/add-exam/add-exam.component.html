@@ -1,0 +1,40 @@
+<br><br>
+<br><br>
+
+
+<div class="register-box">    
+    <div class="register-box-body">
+      <p class="login-box-msg">Add Exam</p>
+  
+      <form #catForm="ngForm" (ngSubmit)="addExam()">
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="exam title" type="text" name="title" [(ngModel)]="model.title"
+          required #title="ngModel">         
+        </div>
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="exam duration" type="number" name="duration" [(ngModel)]="model.duration"
+          required #duration="ngModel">         
+        </div>
+
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="exam mark" type="number" name="mark" [(ngModel)]="model.mark"
+          required #mark="ngModel">         
+        </div>
+
+        <div class="form-group has-feedback">
+          <input class="form-control" placeholder="exam notes" type="text" name="notes" [(ngModel)]="model.notes"
+          required #notes="ngModel">         
+        </div>
+        <div class="row">         
+          <!-- /.col -->
+          <div class="col-xs-4 col-md-6">
+            <button class="btn btn-primary btn-block btn-flat" type="submit">Add</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>    
+    </div>
+    <!-- /.form-box -->
+  </div>
+  <!-- /.register-box -->
+  

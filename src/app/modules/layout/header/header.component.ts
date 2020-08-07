@@ -17,4 +17,9 @@ export class HeaderComponent implements OnInit {
     //console.log(this.auth.user)
   }
 
+  checkAdm(rule:any){
+    if(this.auth.getusertype()==rule){
+      return true;
+    }
+  }
 }

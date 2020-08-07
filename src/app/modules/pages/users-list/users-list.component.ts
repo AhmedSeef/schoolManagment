@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserListService } from 'src/app/Service/user-list.service';
 import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-users-list',
@@ -15,10 +16,15 @@ export class UsersListComponent implements OnInit {
     complete: () => { },
   };
 
-  constructor(private userList:UserListService,private sharedservice:SharedMethodService) { }
+  constructor(private userList:UserListService,private sharedservice:SharedMethodService,private auth:AuthService) { 
+    var result =this.auth.getusertype();
+     if(result!='ADM'){
+       this.sharedservice.navigate("home")           
+    }
+  }
 
   ngOnInit() {
-         this.getusers();
+        this.getusers();
   }
 
   getusers(){

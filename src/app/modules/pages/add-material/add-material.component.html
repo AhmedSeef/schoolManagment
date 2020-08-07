@@ -20,11 +20,7 @@
         required #title="ngModel">         
       </div>
 
-      <div class="form-group has-feedback">
-        <input class="form-control" placeholder="path" type="file" name="path" [(ngModel)]="model.path"
-        required #path="ngModel" (change)="changeFile($event)">         
-      </div>
-
+      
       <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx">
 
       <div class="form-group has-feedback">
@@ -46,3 +42,4 @@
   </div>
   <!-- /.form-box -->
 </div>
+

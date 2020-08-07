@@ -47,8 +47,7 @@ export class AddMaterialComponent implements OnInit {
   }
 }
 
-  addMaterial(){
-    
+  addMaterial(){    
     this.materialService.save(this.form)
   }
 }

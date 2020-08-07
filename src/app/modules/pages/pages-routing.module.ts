@@ -18,6 +18,9 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import { UserSubjComponent } from './users-list/user-subj/user-subj.component';
 import { AddMaterialComponent } from './add-material/add-material.component';
 import { MaterialListComponent } from './material-list/material-list.component';
+import { ExamListComponent } from './exam-list/exam-list.component';
+import { AddExamComponent } from './add-exam/add-exam.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
 
 
 const routes: Routes = [
@@ -39,7 +42,9 @@ const routes: Routes = [
       {path:'user-subj/:id',component:UserSubjComponent},
       {path:'addmaterial',component:AddMaterialComponent},
       {path:'materials',component:MaterialListComponent},
-
+      {path:'exams',component:ExamListComponent},
+      {path:'addexam',component:AddExamComponent},
+      {path:'addquestion',component:AddQuestionComponent},
       { path: "**", component: DashBoardComponent }
 
     ]
