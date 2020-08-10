@@ -5,7 +5,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SbjectService {
-  baseUrl = "http://127.0.0.1:8000/api/subjects/";
+  baseUrl = "https://smart-school-project.herokuapp.com/api/subjects/";
   token =JSON.parse(localStorage.getItem('token'));
   headers_object;
   httpOptions;
@@ -30,4 +30,11 @@ export class SbjectService {
     return this.http.post(this.baseUrl,subject,this.httpOptions)
   }
 
+  getUserSubjects(id:Number){
+    return this.http.get("https://smart-school-project.herokuapp.com/api/users/"+id+"/subjects",this.httpOptions)
+  }
+
+  getSubjectMAterial(id:Number){
+    return this.http.get("https://smart-school-project.herokuapp.com/api/subjects/"+id+"/materials",this.httpOptions)
+  }
 }

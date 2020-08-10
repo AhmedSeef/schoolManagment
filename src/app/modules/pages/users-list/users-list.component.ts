@@ -17,6 +17,7 @@ export class UsersListComponent implements OnInit {
   };
 
   constructor(private userList:UserListService,private sharedservice:SharedMethodService,private auth:AuthService) { 
+    auth.logOut();
     var result =this.auth.getusertype();
      if(result!='ADM'){
        this.sharedservice.navigate("home")           

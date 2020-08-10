@@ -7,7 +7,7 @@ import { ThrowStmt } from '@angular/compiler';
   providedIn: 'root'
 })
 export class MaterialService {
-  baseUrl = "http://127.0.0.1:8000/api/materials/";
+  baseUrl = "https://smart-school-project.herokuapp.com/api/materials/";
   token =JSON.parse(localStorage.getItem('token'));
   headers_object;
 
@@ -45,7 +45,7 @@ var requestOptions = {
   
 };
 
-return fetch("http://127.0.0.1:8000/api/materials/", requestOptions)
+return fetch("https://smart-school-project.herokuapp.com/api/materials/", requestOptions)
   .then(response => alert("added succefully"))
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

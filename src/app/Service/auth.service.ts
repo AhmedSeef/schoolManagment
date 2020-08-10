@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = "http://127.0.0.1:8000/api/";
+  baseUrl = "https://smart-school-project.herokuapp.com/api/";
   token: any = "";
   user_type: any = "";
   user: any = {};
@@ -48,12 +48,16 @@ export class AuthService {
     return this.user;
   }
 
-  logOut() {
+  logOut() {    
     var data = localStorage.getItem("token");
-    this.token = JSON.parse(data)
+    this.token = JSON.parse(data);  
     if (this.token == null || this.token == "") {
-      this.router.navigateByUrl("http://localhost:4200/login")
-      
+      this.router.navigateByUrl("login")     
     }
+  }
+
+  resetToken(){
+    localStorage.removeItem("token");
+    this.logOut();
   }
 }

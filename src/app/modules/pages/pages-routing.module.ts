@@ -21,6 +21,9 @@ import { MaterialListComponent } from './material-list/material-list.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { AddExamComponent } from './add-exam/add-exam.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SubjectMaterialsComponent } from './subjectMaterials/subjectMaterials.component';
+import { AddSubjectMaterialComponent } from './addSubjectMaterial/addSubjectMaterial.component';
 
 
 const routes: Routes = [
@@ -45,6 +48,10 @@ const routes: Routes = [
       {path:'exams',component:ExamListComponent},
       {path:'addexam',component:AddExamComponent},
       {path:'addquestion',component:AddQuestionComponent},
+      {path:'profile',component:ProfileComponent},
+      {path:'subjectMaterials/:id',component:SubjectMaterialsComponent},
+      {path:'addSubjectMaterials/:id',component:AddSubjectMaterialComponent},
+
       { path: "**", component: DashBoardComponent }
 
     ]

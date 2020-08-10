@@ -12,6 +12,7 @@ export class StageListComponent implements OnInit {
   stages:any;
 
   constructor(private stageService:SatgesService,private sharedservice:SharedMethodService,private auth:AuthService) { 
+    
     var result =this.auth.getusertype();
      if(result!='ADM'){
        this.sharedservice.navigate("home")           

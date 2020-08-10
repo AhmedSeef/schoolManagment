@@ -62,7 +62,7 @@
         </ul>
       </li>  
 
-      <li class="treeview" *ngIf="checkRule('TECH')==true || checkRule('ADM')==true">
+      <li class="treeview" *ngIf="checkRule('ADM')==true">
         <a href="#">
           <i class="fa fa-folder"></i> <span>Materials</span>
           <span class="pull-right-container">
@@ -83,7 +83,6 @@
         </a>
         <ul class="treeview-menu">
         <li><a (click)="get('/home/exams')"><i class="fa fa-book"></i> <span>Exams</span></a></li>
-        <li><a (click)="get('/home/materials')"><i class="fa fa-book"></i> <span>Questions</span></a></li> 
         </ul>
       </li>  
      

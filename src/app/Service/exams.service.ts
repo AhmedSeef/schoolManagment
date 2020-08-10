@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ExamsService {
 
-  baseUrl = "http://127.0.0.1:8000/api/exams/";
+  baseUrl = "https://smart-school-project.herokuapp.com/api/exams/";
   token =JSON.parse(localStorage.getItem('token'));
   headers_object;
 

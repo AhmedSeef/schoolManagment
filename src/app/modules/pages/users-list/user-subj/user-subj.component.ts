@@ -11,6 +11,9 @@ import { SbjectService } from 'src/app/Service/sbject.service';
 export class UserSubjComponent implements OnInit {
   id: Number;
   userSubjects: any[];
+  sub:any = {};
+  userSub:any[] = [];
+  form = new FormData();
   subjects: any;
   constructor(private route: ActivatedRoute, private user_subject: UserSubjectsService, private subjectService: SbjectService) {
 
@@ -23,7 +26,7 @@ export class UserSubjComponent implements OnInit {
       (error: any) => { },
       () => {
         this.subjectService.getListSubjects().subscribe(
-          (data: any) => { this.subjects = data }
+          (data: any) => { this.subjects = data ;console.log(data)}
         )
       }
     )
@@ -34,16 +37,24 @@ export class UserSubjComponent implements OnInit {
   }
 
   add(subjecttoadd: any) {
+   
     let itemAlreadyExist = this.userSubjects.find(
       item => item.id === subjecttoadd.id 
     );
 
     if(itemAlreadyExist){
-      alert("already added")
+      alert("already added");
     }
-    else{
-      this.userSubjects.push(subjecttoadd)
+    else{ 
+      this.sub.id = subjecttoadd.id;
+      this.sub.name = subjecttoadd.name;      
+      this.userSub.push(this.sub);      
     }
+
+    console.log(this.userSub);
   }
 
+  save(){
+    this.user_subject.updateUserSubjects(this.id,this.userSub)
+  }
 }

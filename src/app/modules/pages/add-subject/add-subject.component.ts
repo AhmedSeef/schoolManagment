@@ -5,6 +5,8 @@ import { SatgesService } from 'src/app/Service/satges.service';
 import { CategoryService } from 'src/app/Service/category.service';
 import { AuthService } from 'src/app/Service/auth.service';
 import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-subject',
@@ -33,7 +35,8 @@ export class AddSubjectComponent implements OnInit {
     complete: () => { },
   };
 
-  constructor(private subjectService:SbjectService,private auth:AuthService,private sharedservice:SharedMethodService,private stageService:SatgesService,private categoryService:CategoryService) { 
+  constructor(private router:Router,private subjectService:SbjectService,private auth:AuthService,private sharedservice:SharedMethodService,private stageService:SatgesService,private categoryService:CategoryService) { 
+    auth.logOut();
     var result =this.auth.getusertype();
      if(result!='ADM'){
        this.sharedservice.navigate("home")           
@@ -54,7 +57,7 @@ export class AddSubjectComponent implements OnInit {
 
   addSubject(){
     this.subjectService.addSsubject(this.subject).subscribe(
-      ()=>{}
+      ()=>{alert("Added succesfully");this.router.navigateByUrl("/home/subjects")}
     )
   }
 }

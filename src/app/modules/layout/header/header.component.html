@@ -82,32 +82,19 @@
               <img alt="User Image" class="img-circle" src="assets/dist/img/user2-160x160.jpg">
 
               <p>
-                {{user.username}} - Web Developer
-                <small>Member since Nov. 2012</small>
+                {{user.username}}                 
               </p>
             </li>
             <!-- Menu Body -->
-            <li class="user-body">
-              <div class="row">
-                <div class="col-xs-4 text-center">
-                  <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Friends</a>
-                </div>
-              </div>
-              <!-- /.row -->
-            </li>
+           
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a class="btn btn-default btn-flat" href="#">Profile</a>
+                <a *ngIf="checkRule('TECH')==true || checkRule('STD')==true" 
+                  class="btn btn-default btn-flat" href="/home/profile">Profile</a>
               </div>
               <div class="pull-right">
-                <a class="btn btn-default btn-flat" href="#">Sign out</a>
+                <a class="btn btn-default btn-flat" (click)="clearToken()">Sign out</a>
               </div>
             </li>
           </ul>

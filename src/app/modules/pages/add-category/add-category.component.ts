@@ -14,6 +14,7 @@ category:Category ={
   name:""
 }
   constructor(private categoryService:CategoryService,private sharedSevice:SharedMethodService,private auth:AuthService) { 
+    this.auth.logOut();
     var result =this.auth.getusertype();
      if(result!='ADM'){
        this.sharedSevice.navigate("home")           

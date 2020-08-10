@@ -7,6 +7,6 @@
     material-list
   </p>
 
-  <p *ngFor="let material of materials">Your browser does not support PDFs.
+  <p *ngFor="let material of materials">{{material.title}}
     <a href="{{material.path}}" download>Download the PDF</a>
   </p>

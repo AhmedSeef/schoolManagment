@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SbjectService } from 'src/app/Service/sbject.service';
+import { AuthService } from 'src/app/Service/auth.service';
 import { Material } from 'src/app/models/material';
 import { MaterialService } from 'src/app/Service/material.service';
-import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
-  selector: 'app-add-material',
-  templateUrl: './add-material.component.html',
-  styleUrls: ['./add-material.component.css']
+  selector: 'app-addSubjectMaterial',
+  templateUrl: './addSubjectMaterial.component.html',
+  styleUrls: ['./addSubjectMaterial.component.css']
 })
-export class AddMaterialComponent implements OnInit {
-  subjects:any =[];
+export class AddSubjectMaterialComponent implements OnInit {
   model:Material = {
     subject:0,
     material_type:"pdf",
@@ -18,24 +18,16 @@ export class AddMaterialComponent implements OnInit {
     path:null,
     notes:""
   };
-
   form:FormData = new FormData();
-  
-  constructor(private materialService:MaterialService,private subjectService:SbjectService,private auth:AuthService) { 
+  subjectId;
+  constructor(private materialService:MaterialService,private router:ActivatedRoute,private subjectService:SbjectService,private auth:AuthService) { 
     auth.logOut();
   }
 
   ngOnInit() {
-    this.subjectService.getListSubjects().subscribe(
-      (response:any)=>{this.subjects = response}
-    )
+    this.subjectId = this.router.snapshot.params['id'];
+    this.model.subject = this.subjectId;
   }
-
-  setSubject(subjectId:number){    
-    this.model.subject = subjectId;
-  }
-
-  
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
@@ -53,4 +45,5 @@ export class AddMaterialComponent implements OnInit {
   addMaterial(){    
     this.materialService.save(this.form)
   }
+
 }

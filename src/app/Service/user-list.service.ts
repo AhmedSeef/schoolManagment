@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserListService {
   users:any;
-  baseUrl = "http://127.0.0.1:8000/api/";
+  baseUrl = "https://smart-school-project.herokuapp.com/api/";
   token =JSON.parse(localStorage.getItem('token'));
 
   headers_object;

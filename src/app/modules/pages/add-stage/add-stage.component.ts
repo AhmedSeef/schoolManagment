@@ -15,6 +15,7 @@ export class AddStageComponent implements OnInit {
     name:""
   }
   constructor(private satgeService:SatgesService,private sharedSevice:SharedMethodService,private auth:AuthService) { 
+    auth.logOut();
     var result =this.auth.getusertype();
      if(result!='ADM'){
        this.sharedSevice.navigate("home")           

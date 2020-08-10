@@ -37,6 +37,7 @@ export class AddUserComponent implements OnInit {
   parentHidden:boolean=true;
 
   constructor(private userl:UserListService, private datePipe: DatePipe,private ctegorService:CategoryService,private stageService:SatgesService,private shareS:SharedMethodService,private auth:AuthService) { 
+    auth.logOut();
     var result =this.auth.getusertype();
     if(result!='ADM'){
       this.shareS.navigate("home")           

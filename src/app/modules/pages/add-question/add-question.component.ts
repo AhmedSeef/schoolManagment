@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamsService } from 'src/app/Service/exams.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-add-question',
@@ -11,7 +12,8 @@ export class AddQuestionComponent implements OnInit {
   questions:any[] =[];
   model:any={};
   questionList:any[]= [];
-  constructor(private examservice:ExamsService) {
+  constructor(private examservice:ExamsService,private auth:AuthService) {
+    auth.logOut();
   this.exam = JSON.parse(localStorage.getItem('examdata'))
   
   }
@@ -26,7 +28,8 @@ export class AddQuestionComponent implements OnInit {
     this.model.mark = this.model.mark.toString();
     this.questionList.push(this.model)
    this.examservice.addQuestions(this.exam.id,this.questionList).subscribe(
-     ()=>{alert("done")}
+     ()=>{alert("done");
+    this.questions.push(this.model)}
    )
   }
 

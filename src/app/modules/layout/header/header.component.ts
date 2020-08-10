@@ -22,4 +22,14 @@ export class HeaderComponent implements OnInit {
       return true;
     }
   }
+
+  checkRule(rule:any){
+    if(this.auth.getusertype()==rule){
+      return true;
+    }
+  }
+
+  clearToken(){
+    this.auth.resetToken();
+  }
 }

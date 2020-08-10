@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamsService } from 'src/app/Service/exams.service';
 import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-add-exam',
@@ -9,7 +10,9 @@ import { SharedMethodService } from 'src/app/Service/sharedMethod.service';
 })
 export class AddExamComponent implements OnInit {
 model:any = {};
-  constructor(private examService:ExamsService,private sharedservice:SharedMethodService) { }
+  constructor(private examService:ExamsService,private sharedservice:SharedMethodService,private auth:AuthService) { 
+    auth.logOut();
+  }
 
   ngOnInit() {
   }
