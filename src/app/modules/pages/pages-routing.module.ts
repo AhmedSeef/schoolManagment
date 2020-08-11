@@ -48,7 +48,7 @@ const routes: Routes = [
       {path:'exams',component:ExamListComponent},
       {path:'addexam',component:AddExamComponent},
       {path:'addquestion',component:AddQuestionComponent},
-      {path:'profile',component:ProfileComponent},
+      {path:'userMaterials',component:ProfileComponent},
       {path:'subjectMaterials/:id',component:SubjectMaterialsComponent},
       {path:'addSubjectMaterials/:id',component:AddSubjectMaterialComponent},
 

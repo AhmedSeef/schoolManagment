@@ -85,6 +85,18 @@
         <li><a (click)="get('/home/exams')"><i class="fa fa-book"></i> <span>Exams</span></a></li>
         </ul>
       </li>  
+
+      <li class="treeview" *ngIf="checkRule('TECH')==true || checkRule('STD')==true">
+        <a href="#">
+          <i class="fa fa-folder"></i> <span>Materials</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="/home/userMaterials"><i class="fa fa-book"></i> <span>Materials</span></a></li>
+        </ul>
+      </li>  
      
     </ul>
   </section>

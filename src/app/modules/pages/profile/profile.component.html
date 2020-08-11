@@ -24,8 +24,9 @@
                               <td class="sorting_1">{{subject.id}}</td>
                               <td>{{subject.name}}</td>                                
                               <td>                                   
-                                  <button type="button" class="btn btn-success" [routerLink]="['../subjectMaterials/',subject.id]">get materials</button>
-                                  <button type="button" class="btn btn-success" [routerLink]="['../addSubjectMaterials/',subject.id]">add materials</button>
+                                  <button type="button" class="btn btn-success"  [routerLink]="['../subjectMaterials/',subject.id]">get materials</button>
+                                  <button type="button" class="btn btn-success" [routerLink]="['../addSubjectMaterials/',subject.id]"
+                                  *ngIf="checkRule('TECH')==true">add materials</button>
                               </td> 
                           </tr>
                       </tbody>

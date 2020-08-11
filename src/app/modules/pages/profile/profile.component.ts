@@ -8,11 +8,12 @@ import { SbjectService } from 'src/app/Service/sbject.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  userId:any = {};
   subjects:any;
   constructor(private auth:AuthService,private subjectService:SbjectService) { 
+    this.userId = auth.getUserId();   
     auth.logOut();
-    subjectService.getUserSubjects(1).subscribe(
+    subjectService.getUserSubjects(this.userId).subscribe(
       (data:any)=>{this.subjects = data}
     )
   }
@@ -20,11 +21,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  addMaterials(id){
-    alert("Added"+id)
-  }
-
-  getMaterials(id){
-    alert("get"+id)
+  
+  checkRule(rule:any){
+    if(this.auth.getusertype()==rule){
+      return true;
+    }
   }
 }

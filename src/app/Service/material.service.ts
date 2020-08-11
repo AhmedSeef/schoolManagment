@@ -8,47 +8,43 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class MaterialService {
   baseUrl = "https://smart-school-project.herokuapp.com/api/materials/";
-  token =JSON.parse(localStorage.getItem('token'));
+  token = JSON.parse(localStorage.getItem('token'));
   headers_object;
 
   httpOptions;
 
-  constructor(private http:HttpClient) { 
+  constructor(private http: HttpClient) {
     this.headers_object = new HttpHeaders({
       'Content-Type': 'application/json',
-       'Authorization': "token "+ this.token 
+      'Authorization': "token " + this.token
     });
     this.headers_object.append('enctype', 'multipart/form-data');
     this.headers_object.set('Content-Type', 'false');
     this.headers_object.set('mimeType', 'application/json');
-    
+
     this.httpOptions = {
       headers: this.headers_object
     };
   }
 
-  getList(){
-    return this.http.get(this.baseUrl,this.httpOptions);
+  getList() {
+    return this.http.get(this.baseUrl, this.httpOptions);
   }
 
-save(material){ 
+  save(material) {
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Token "+this.token);
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token " + this.token);
 
 
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: material,
-  
-};
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: material,
 
-return fetch("https://smart-school-project.herokuapp.com/api/materials/", requestOptions)
-  .then(response => alert("added succefully"))
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-  
-}
+    };
+    return fetch("https://smart-school-project.herokuapp.com/api/materials/", requestOptions)
+
+  }
 }

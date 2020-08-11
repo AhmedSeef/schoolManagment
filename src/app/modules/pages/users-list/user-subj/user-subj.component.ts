@@ -36,8 +36,7 @@ export class UserSubjComponent implements OnInit {
     this.userSubjects.splice(this.userSubjects.indexOf(name), 1);
   }
 
-  add(subjecttoadd: any) {
-   
+  add(subjecttoadd: any) {   
     let itemAlreadyExist = this.userSubjects.find(
       item => item.id === subjecttoadd.id 
     );
@@ -45,16 +44,22 @@ export class UserSubjComponent implements OnInit {
     if(itemAlreadyExist){
       alert("already added");
     }
-    else{ 
-      this.sub.id = subjecttoadd.id;
-      this.sub.name = subjecttoadd.name;      
-      this.userSub.push(this.sub);      
+    else{
+      this.userSubjects.push(subjecttoadd)   
     }
 
     console.log(this.userSub);
   }
 
   save(){
-    this.user_subject.updateUserSubjects(this.id,this.userSub)
-  }
+    
+    var form = new FormData();
+    form.append("subject", "1");
+    
+    this.userSubjects.forEach(function (value) {
+      form.append("subject", value.id);
+      console.log(value.id + value.name);
+    });
+    this.user_subject.updateUserSubjects(this.id,form)
+   }
 }

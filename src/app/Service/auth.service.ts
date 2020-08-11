@@ -10,11 +10,15 @@ export class AuthService {
   token: any = "";
   user_type: any = "";
   user: any = {};
+  userId;
   constructor(private http: HttpClient, private router: Router) { }
 
   login(user: any) {
     this.http.post(this.baseUrl + "login/", user).subscribe(
       (data: any) => {
+        this.userId = JSON.stringify(data.result.id);
+        window.localStorage.setItem("userId", this.userId);
+
         this.user = JSON.stringify(data.result.user);
         window.localStorage.setItem("user", this.user);
 
@@ -59,5 +63,11 @@ export class AuthService {
   resetToken(){
     localStorage.removeItem("token");
     this.logOut();
+  }
+
+  getUserId(){   
+    var data = localStorage.getItem("userId");
+    this.userId = JSON.parse(data);    
+    return this.userId;
   }
 }

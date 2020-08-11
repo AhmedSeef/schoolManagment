@@ -17,7 +17,7 @@ export class MaterialListComponent implements OnInit {
 
   ngOnInit() {
     this.mterialService.getList().subscribe(
-      (data:any)=>{this.materials = data}
+      (data:any)=>{this.materials = data;console.log(data)}
     )
   }
 

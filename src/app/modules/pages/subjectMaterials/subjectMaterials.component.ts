@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class SubjectMaterialsComponent implements OnInit {
   subjectId;
-  materials;
+  materials:any[]=[];
   constructor(private router:ActivatedRoute,private subjectService:SbjectService,private auth:AuthService) { 
     auth.logOut();
   }
@@ -18,7 +18,7 @@ export class SubjectMaterialsComponent implements OnInit {
   ngOnInit() {
     this.subjectId = this.router.snapshot.params['id'];
     this.subjectService.getSubjectMAterial(2).subscribe(
-      (data:any)=>{this.materials = data}
+      (data:any)=>{console.log(data)}
     )
   }
 
