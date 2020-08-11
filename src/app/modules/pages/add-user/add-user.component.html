@@ -75,7 +75,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Address" type="text" name="address" [(ngModel)]="user.address">
+        <input class="form-control" placeholder="Address" type="text" name="adress" [(ngModel)]="user.adress">
         <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
       </div>
 
@@ -92,7 +92,7 @@
       </div>
 
       <div class="form-group" [hidden]="studentHidden">
-        <select class="form-control" name="stage_id" (change)="slectSatge($event.target.value)"
+        <select class="form-control" name="stage_id" 
           [(ngModel)]="user.stage">
           <option [value]="0" selected>select student stage</option>
           <option *ngFor="let stage of stages" [value]="stage.id">
