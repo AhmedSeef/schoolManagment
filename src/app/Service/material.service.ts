@@ -47,4 +47,8 @@ export class MaterialService {
     return fetch("https://smart-school-project.herokuapp.com/api/materials/", requestOptions)
 
   }
+
+  remove(id:Number){
+    return this.http.delete(this.baseUrl+id,this.httpOptions);
+  }
 }

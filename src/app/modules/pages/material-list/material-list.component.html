@@ -28,7 +28,10 @@
                         <tbody>
                             <tr role="row" class="even" *ngFor="let material of materials">
                                 <td class="sorting_1">{{material.title}}</td>
-                                <td><a href="{{material.path}}" download>Download the file</a></td>  
+                                <td><a href="{{material.path}}" download>Download the file</a></td> 
+                                <td>
+                                    <button type="button" class="btn btn-danger" (click)="remove(material.id)">Delete</button>                                    
+                                </td> 
                             </tr>
                         </tbody>
                         <tfoot>

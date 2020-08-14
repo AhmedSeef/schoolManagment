@@ -32,7 +32,7 @@ export class UserListService {
   }
 
   registerUser(user:any){    
-    return this.http.post(this.baseUrl + "users/",user,this.httpOptions) 
+    return this.http.post("https://smart-school-project.herokuapp.com/api/users/",user,this.httpOptions) 
   }
 
   removeUser(id:number){

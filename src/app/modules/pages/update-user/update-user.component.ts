@@ -26,7 +26,7 @@ export class UpdateUserComponent implements OnInit,OnDestroy {
     stage:null,
     category:null,
     hire_date:null,
-    adress:""
+    address:""
   };
   type:any;
   categories:any;

@@ -41,8 +41,7 @@ export class AuthService {
   }
 
   getusertype() {
-    this.user_type = JSON.parse(localStorage.getItem('user_type'));
-    console.log(this.user_type)
+    this.user_type = JSON.parse(localStorage.getItem('user_type'));    
     return this.user_type;
   }
 

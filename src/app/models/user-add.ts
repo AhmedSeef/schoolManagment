@@ -6,7 +6,7 @@ export class UserAdd {
     first_name:string;
     last_name:string;
     phone:string;
-    adress:string;
+    address:string;
     birth_date:Date;
     job:string;
     hire_date:Date;

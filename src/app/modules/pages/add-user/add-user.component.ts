@@ -27,7 +27,7 @@ export class AddUserComponent implements OnInit {
     stage:null,
     category:null,
     hire_date:null,
-    adress:""
+    address:""
   };
   type:any;
   categories:any;
@@ -61,6 +61,7 @@ export class AddUserComponent implements OnInit {
   }
   //slect user type and maping values
   selected(value:any){
+    
       if(value == 1)
       {
         this.type= "ADM";

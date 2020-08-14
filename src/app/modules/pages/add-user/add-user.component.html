@@ -70,12 +70,12 @@
 
       <div *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)" class="alert alert-danger">
         <div *ngIf="birth_date.errors.required">
-          User Name is required.
+          birth date is required.
         </div>
       </div>
 
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Address" type="text" name="adress" [(ngModel)]="user.adress">
+        <input class="form-control" placeholder="Address" type="text" name="address" [(ngModel)]="user.address">
         <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
       </div>
 
@@ -87,7 +87,7 @@
       </div>
       <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
         <div *ngIf="password.errors.required">
-          User Name is required.
+          PAssword Name is required.
         </div>
       </div>
 

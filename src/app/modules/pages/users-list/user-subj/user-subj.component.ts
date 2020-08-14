@@ -48,13 +48,13 @@ export class UserSubjComponent implements OnInit {
       this.userSubjects.push(subjecttoadd)   
     }
 
-    console.log(this.userSub);
+   
   }
 
   save(){
     
     var form = new FormData();
-    form.append("subject", "1");
+   
     
     this.userSubjects.forEach(function (value) {
       form.append("subject", value.id);
