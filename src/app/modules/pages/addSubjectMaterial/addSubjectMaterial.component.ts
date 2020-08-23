@@ -11,16 +11,17 @@ import { MaterialService } from 'src/app/Service/material.service';
   styleUrls: ['./addSubjectMaterial.component.css']
 })
 export class AddSubjectMaterialComponent implements OnInit {
-  model:Material = {
-    subject:0,
-    material_type:"pdf",
-    title:"",
-    path:null,
-    notes:""
+  loaderHidden = true;
+  model: Material = {
+    subject: 0,
+    material_type: "pdf",
+    title: "",
+    path: null,
+    notes: ""
   };
-  form:FormData = new FormData();
+  form: FormData = new FormData();
   subjectId;
-  constructor(private materialService:MaterialService,private router:ActivatedRoute,private subjectService:SbjectService,private auth:AuthService) { 
+  constructor(private materialService: MaterialService, private router: ActivatedRoute, private subjectService: SbjectService, private auth: AuthService) {
     auth.logOut();
   }
 
@@ -31,19 +32,29 @@ export class AddSubjectMaterialComponent implements OnInit {
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-      let file: File = fileList[0];   
-     
-    this.form.append("subject", this.model.subject.toString());
-    this.form.append("material_type", "pdf");
-    this.form.append("title", this.model.title);
-    this.form.append("path", file, file.name);
-    this.form.append("notes", this.model.notes);
+    if (fileList.length > 0) {
+      let file: File = fileList[0];
+
+      this.form.append("subject", this.model.subject.toString());
+      this.form.append("material_type", "pdf");
+      this.form.append("title", this.model.title);
+      this.form.append("path", file, file.name);
+      this.form.append("notes", this.model.notes);
+    }
+  }
+
+  addMaterial() {
+    this.loaderHidden = false;
+    this.delay(5000)
+    this.materialService.save(this.form).then(response => { alert("added succefully");this.loaderHidden=true})
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+      this.loaderHidden = true
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
 
-  addMaterial(){    
-    this.materialService.save(this.form)
-  }
 
-}

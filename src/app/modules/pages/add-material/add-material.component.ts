@@ -54,7 +54,7 @@ export class AddMaterialComponent implements OnInit {
   async addMaterial() {
     this.loaderHidden = false;
     await this.delay(300);
-    this.materialService.save(this.form).then(response => alert("added succefully"))
+    this.materialService.save(this.form).then(response =>{ alert("added succefully");this.loaderHidden=true})
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
     this.loaderHidden = true
