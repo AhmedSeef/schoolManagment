@@ -1,0 +1,39 @@
+<div class="box">
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending" aria-label="user name: activate to sort column descending"
+                                    style="width: 182px;">id</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="name: activate to sort column ascending" style="width: 225px;">
+                                    name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row" class="even" *ngFor="let material of materials">
+                                <td class="sorting_1">{{material.title}}</td>
+                                <td><a href="{{material.path}}" download>Download the file</a></td>
+                                
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-body -->
+</div>

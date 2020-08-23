@@ -18,7 +18,7 @@ export class SubjectMaterialsComponent implements OnInit {
   ngOnInit() {
     this.subjectId = this.router.snapshot.params['id'];
     this.subjectService.getSubjectMAterial(2).subscribe(
-      (data:any)=>{console.log(data)}
+      (data:any)=>{this.materials = data.data}
     )
   }
 
